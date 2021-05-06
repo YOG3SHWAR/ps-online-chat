@@ -1,8 +1,13 @@
 package com.sapient.message.tests;
 
-import static org.junit.Assert.*;
 
-import org.junit.*;
+//import static org.junit.Assert.*;
+//import org.junit.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import org.junit.jupiter.api.*;
+
 
 import pod.one.dao.*;
 import pod.one.entity.MessageRequest;
@@ -14,7 +19,7 @@ public class MessageTest {
 	private IMessageRequestDAO dao = null;
 	private IUpdateProfileDAO dao1 = null;
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		m = new MessageRequest();
 		dao = new MessageRequestDAO(); 
@@ -28,31 +33,37 @@ public class MessageTest {
 	}
 	
 	@Test
+	@DisplayName("Message Post Test")
 	public void messagePostTest() {
 		assertEquals(true , dao.saveMessage(m));
 	}
 	
 	@Test
+	@DisplayName("Sender Id Test")
 	public void isSenderIDCorrect() {
 		assertEquals(10005 , m.getSender_id());
 	}
 	
 	@Test
+	@DisplayName("Receiver Id Test")
 	public void isRecieverIDCorrect() {
 		assertEquals(10003 , m.getReceiver_id());
 	}
 	
 	@Test
+	@DisplayName("Get All Message Test")
 	public void getAllMessages() {
-		assertEquals(19 , dao.getAllMessages().size());
+		assertNotEquals(0 , dao.getAllMessages().size());
 	}
 	
 	@Test
+	@DisplayName("name Update Test")
 	public void isNameUpdatedCorrectly() {
 		assertEquals(false , dao1.updateName(124, "ABC"));
 	}
 	
 	@Test
+	@DisplayName("Email Update Test")
 	public void isEmailUpdatedCorrectly() {
 		assertEquals(false , dao1.updateEmail(124, "abc@gmail.com"));
 	}
