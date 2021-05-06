@@ -9,7 +9,7 @@ public class GetConnection {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String url = "jdbc:mysql://localhost/chatapp";
 		String name = "root";
-		String password = "Nameiskanha1!";
+		String password = "1234";
 		
 		try {
 			Class.forName(driver);
