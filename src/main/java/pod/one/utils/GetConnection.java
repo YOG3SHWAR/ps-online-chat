@@ -8,8 +8,8 @@ public class GetConnection {
 	public static Connection getMySQLConn() {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String url = "jdbc:mysql://localhost/chatapp";
-		String name = "shubham";
-		String password = "shubham";
+		String name = "root";
+		String password = "Nameiskanha1!";
 		
 		try {
 			Class.forName(driver);

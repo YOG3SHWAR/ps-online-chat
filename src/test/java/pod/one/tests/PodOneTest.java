@@ -1,4 +1,4 @@
-package com.sapient.message.tests;
+package pod.one.tests;
 
 
 //import static org.junit.Assert.*;
@@ -6,14 +6,18 @@ package com.sapient.message.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import org.junit.jupiter.api.*;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-import pod.one.dao.*;
+import pod.one.dao.MessageRequestDAO;
+import pod.one.dao.UpdateProfileDAO;
 import pod.one.entity.MessageRequest;
-import pod.one.interfaces.*;
+import pod.one.interfaces.IMessageRequestDAO;
+import pod.one.interfaces.IUpdateProfileDAO;
 
-public class MessageTest {
+public class PodOneTest {
 
 	private MessageRequest m = null;
 	private IMessageRequestDAO dao = null;
