@@ -14,6 +14,8 @@ import org.junit.jupiter.api.Test;
 import pod.one.dao.MessageRequestDAO;
 import pod.one.dao.UpdateProfileDAO;
 import pod.one.entity.MessageRequest;
+import pod.one.exceptions.EmailNotValidException;
+import pod.one.exceptions.NameTooSmallException;
 import pod.one.interfaces.IMessageRequestDAO;
 import pod.one.interfaces.IUpdateProfileDAO;
 
@@ -62,13 +64,13 @@ public class PodOneTest {
 	
 	@Test
 	@DisplayName("name Update Test")
-	public void isNameUpdatedCorrectly() {
+	public void isNameUpdatedCorrectly() throws NameTooSmallException {
 		assertEquals(false , dao1.updateName(124, "ABC"));
 	}
 	
 	@Test
 	@DisplayName("Email Update Test")
-	public void isEmailUpdatedCorrectly() {
+	public void isEmailUpdatedCorrectly() throws EmailNotValidException {
 		assertEquals(false , dao1.updateEmail(124, "abc@gmail.com"));
 	}
 }

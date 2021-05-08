@@ -1,6 +1,6 @@
 package pod.one.exceptions;
 
-public class AgeLessThan18Exception {
+public class AgeLessThan18Exception extends Exception{
 	private String message;
 	
 	public AgeLessThan18Exception() {

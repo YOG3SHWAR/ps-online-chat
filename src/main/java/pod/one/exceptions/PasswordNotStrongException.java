@@ -1,6 +1,6 @@
 package pod.one.exceptions;
 
-public class PasswordNotStrongException {
+public class PasswordNotStrongException extends Exception{
 	private String message;
 	
 	public PasswordNotStrongException() {
