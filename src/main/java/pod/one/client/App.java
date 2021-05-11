@@ -16,10 +16,10 @@ import pod.one.interfaces.IUpdateProfileDAO;
 public class App {
 	public static void main(String[] args) {
 		MessageRequest m = new MessageRequest();
-		m.setSender_id(10005);
-		m.setReceiver_id(10003);
-		m.setMessage_body("Hi");
-		m.setIs_accepted(1);
+		m.setSenderId(10005);
+		m.setReceiverId(10003);
+		m.setMessageBody("Hi");
+		m.setIsAccepted(1);
 		
 		IMessageRequestDAO dao = new MessageRequestDAO();
 		IUpdateProfileDAO dao1 = new UpdateProfileDAO();

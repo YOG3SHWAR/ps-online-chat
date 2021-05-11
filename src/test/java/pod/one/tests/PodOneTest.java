@@ -31,11 +31,11 @@ public class PodOneTest {
 		dao = new MessageRequestDAO(); 
 		dao1 = new UpdateProfileDAO();
 
-		m.setSender_id(10005);
-		m.setReceiver_id(10003);
+		m.setSenderId(10005);
+		m.setReceiverId(10003);
 		
-		m.setMessage_body("Hi");
-		m.setIs_accepted(1);
+		m.setMessageBody("Hi");
+		m.setIsAccepted(1);
 	}
 	
 	@Test
@@ -47,13 +47,13 @@ public class PodOneTest {
 	@Test
 	@DisplayName("Sender Id Test")
 	public void isSenderIDCorrect() {
-		assertEquals(10005 , m.getSender_id());
+		assertEquals(10005 , m.getSenderId());
 	}
 	
 	@Test
 	@DisplayName("Receiver Id Test")
 	public void isRecieverIDCorrect() {
-		assertEquals(10003 , m.getReceiver_id());
+		assertEquals(10003 , m.getReceiverId());
 	}
 	
 	@Test

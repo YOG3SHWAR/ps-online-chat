@@ -21,7 +21,7 @@ import pod.one.utils.GetConnection;
 
 public class UpdateProfileDAO implements IUpdateProfileDAO{
 
-	public boolean updateEmail(int user_id, String email) throws EmailNotValidException{
+	public boolean updateEmail(int userId, String email) throws EmailNotValidException{
 		// TODO Auto-generated method stub
 		
 		boolean isEmail = false;
@@ -36,7 +36,7 @@ public class UpdateProfileDAO implements IUpdateProfileDAO{
 		try {
 			PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql);
 			ps.setString(1, email);
-			ps.setInt(2, user_id);
+			ps.setInt(2, userId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -46,7 +46,7 @@ public class UpdateProfileDAO implements IUpdateProfileDAO{
 		return false;
 	}
 
-	public boolean updateName(int user_id, String name) throws NameTooSmallException{
+	public boolean updateName(int userId, String name) throws NameTooSmallException{
 		// TODO Auto-generated method stub
 		if(name.length() < 1)
 			throw new NameTooSmallException();
@@ -55,7 +55,7 @@ public class UpdateProfileDAO implements IUpdateProfileDAO{
 		try {
 			PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql);
 			ps.setString(1, name);
-			ps.setInt(2, user_id);
+			ps.setInt(2, userId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -64,7 +64,7 @@ public class UpdateProfileDAO implements IUpdateProfileDAO{
 		return false;
 	}
 
-	public boolean updatePassword(int user_id, String password) throws PasswordNotStrongException{
+	public boolean updatePassword(int userId, String password) throws PasswordNotStrongException{
 
 		//Checking password strength
 		String strength;
@@ -91,7 +91,7 @@ public class UpdateProfileDAO implements IUpdateProfileDAO{
 		try {
 			PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql);
 			ps.setString(1, password);
-			ps.setInt(2, user_id);
+			ps.setInt(2, userId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -100,7 +100,7 @@ public class UpdateProfileDAO implements IUpdateProfileDAO{
 		return false;
 	}
 
-	public boolean updateDOB(int user_id, LocalDate dob) throws AgeLessThan18Exception{
+	public boolean updateDOB(int userId, LocalDate dob) throws AgeLessThan18Exception{
 		// TODO Auto-generated method stub
 		LocalDate start = LocalDate.from((TemporalAccessor) dob);
 		LocalDate end = LocalDate.now();
@@ -115,7 +115,7 @@ public class UpdateProfileDAO implements IUpdateProfileDAO{
 		try {
 			PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql);
 			ps.setDate(1, date);
-			ps.setInt(2, user_id);
+			ps.setInt(2, userId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

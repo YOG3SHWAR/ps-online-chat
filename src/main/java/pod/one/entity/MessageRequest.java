@@ -1,10 +1,10 @@
 package pod.one.entity;
 
 public class MessageRequest {
-	private int sender_id;
-	private int receiver_id;
-	private String message_body;
-	private int is_accepted;
+	private int senderId;
+	private int receiverId;
+	private String messageBody;
+	private int isAccepted;
 	
 	public MessageRequest() {
 		
@@ -12,48 +12,48 @@ public class MessageRequest {
 
 	public MessageRequest(int sender_id, int receiver_id, String message_body, int is_accepted) {
 		super();
-		this.sender_id = sender_id;
-		this.receiver_id = receiver_id;
-		this.message_body = message_body;
-		this.is_accepted = is_accepted;
+		this.senderId = sender_id;
+		this.receiverId = receiver_id;
+		this.messageBody = message_body;
+		this.isAccepted = is_accepted;
 	}
 
-	public int getSender_id() {
-		return sender_id;
+	public int getSenderId() {
+		return senderId;
 	}
 
-	public void setSender_id(int sender_id) {
-		this.sender_id = sender_id;
+	public void setSenderId(int senderId) {
+		this.senderId = senderId;
 	}
 
-	public int getReceiver_id() {
-		return receiver_id;
+	public int getReceiverId() {
+		return receiverId;
 	}
 
-	public void setReceiver_id(int receiver_id) {
-		this.receiver_id = receiver_id;
+	public void setReceiverId(int receiverId) {
+		this.receiverId = receiverId;
 	}
 
-	public String getMessage_body() {
-		return message_body;
+	public String getMessageBody() {
+		return messageBody;
 	}
 
-	public void setMessage_body(String message_body) {
-		this.message_body = message_body;
+	public void setMessageBody(String messageBody) {
+		this.messageBody = messageBody;
 	}
 
-	public int getIs_accepted() {
-		return is_accepted;
+	public int getIsAccepted() {
+		return isAccepted;
 	}
 
-	public void setIs_accepted(int is_accepted) {
-		this.is_accepted = is_accepted;
+	public void setIsAccepted(int isAccepted) {
+		this.isAccepted = isAccepted;
 	}
 
 	@Override
 	public String toString() {
-		return "MessageRequest [sender_id=" + sender_id + ", receiver_id=" + receiver_id + ", message_body="
-				+ message_body + ", is_accepted=" + is_accepted + "]";
+		return "MessageRequest [senderId=" + senderId + ", receiverId=" + receiverId + ", messageBody="
+				+ messageBody + ", isAccepted=" + isAccepted + "]";
 	}
 
 	
