@@ -1,18 +1,18 @@
 package com.sapient.chat.entity;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class UpdateProfile {
 	private String email;
 	private String password;
 	private String name;
-	private Date dob;
-	
+	private LocalDate dob;
+
 	public UpdateProfile() {
-		// TODO Auto-generated constructor stub
+
 	}
 
-	public UpdateProfile(String email, String password, String name, Date dob) {
+	public UpdateProfile(String email, String password, String name, LocalDate dob) {
 		super();
 		this.email = email;
 		this.password = password;
@@ -44,11 +44,11 @@ public class UpdateProfile {
 		this.name = name;
 	}
 
-	public Date getDob() {
+	public LocalDate getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
+	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
 
@@ -56,7 +56,5 @@ public class UpdateProfile {
 	public String toString() {
 		return "UpdateProfile [email=" + email + ", password=" + password + ", name=" + name + ", dob=" + dob + "]";
 	}
-	
-	
-	
+
 }

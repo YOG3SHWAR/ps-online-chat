@@ -2,7 +2,7 @@ package com.sapient.chat.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,8 +42,8 @@ public class MessageRequestController {
 	}
 
 	@PutMapping("/updateRequest/{requestId}")
-	public String changeRequest(@PathVariable int requestId, @RequestBody int isAccepted) {
-		return dao.updateRequest(requestId, isAccepted) ? "updated" : "not updated";
+	public String changeRequest(@PathVariable int requestId, @RequestBody MessageRequest messageRequest) {
+		return dao.updateRequest(requestId, messageRequest.getIsAccepted()) ? "updated" : "not updated";
 	}
 
 }

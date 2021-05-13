@@ -6,8 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-
 import com.sapient.chat.entity.MessageRequest;
 import com.sapient.chat.interfaces.IMessageRequestDAO;
 import com.sapient.chat.utils.GetConnection;
