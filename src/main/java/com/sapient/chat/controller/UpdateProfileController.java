@@ -34,7 +34,7 @@ public class UpdateProfileController {
 		} catch (EmailNotValidException e) {
 			return e.getMessage();
 		}
-		return "Email not updated";
+		return "Unknown Error";
 	}
 
 	@PutMapping("changeName/{userId}")
@@ -46,7 +46,7 @@ public class UpdateProfileController {
 		} catch (NameTooSmallException e) {
 			return e.getMessage();
 		}
-		return "Name not updated";
+		return "Unknown Error";
 	}
 
 	@PutMapping("changePassword/{userId}")
@@ -57,7 +57,7 @@ public class UpdateProfileController {
 		} catch (PasswordNotStrongException e) {
 			return e.getMessage();
 		}
-		return "Password not updated";
+		return "Unknown Error";
 	}
 
 	@PutMapping("changeDOB/{userId}")
@@ -68,6 +68,6 @@ public class UpdateProfileController {
 		} catch (AgeLessThan18Exception e) {
 			return e.getMessage();
 		}
-		return "Date of birth updated";
+		return "Unknown Error";
 	}
 }
