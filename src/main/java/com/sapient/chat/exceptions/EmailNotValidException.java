@@ -1,15 +1,19 @@
 package com.sapient.chat.exceptions;
 
 public class EmailNotValidException extends Exception {
-	
+
 	private String message;
-	
+
 	public EmailNotValidException() {
-		this.message = "Email Not Valid Exception";
+		this.message = "Email is not valid";
 	}
 
 	public EmailNotValidException(String message) {
 		this.message = message;
+	}
+
+	public String getMessage() {
+		return message;
 	}
 
 	@Override

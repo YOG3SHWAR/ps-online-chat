@@ -27,43 +27,47 @@ public class UpdateProfileController {
 	}
 
 	@PutMapping("/changeEmail/{userId}")
-	public boolean changeEmail(@PathVariable int userId, @RequestBody String email) {
+	public String changeEmail(@PathVariable int userId, @RequestBody String email) {
 		try {
-			return dao.updateEmail(userId, email);
+			if(dao.updateEmail(userId, email))
+				return "Email updated";
 		} catch (EmailNotValidException e) {
-			e.printStackTrace();
+			return e.getMessage();
 		}
-		return false;
+		return "Email not updated";
 	}
 
 	@PutMapping("changeName/{userId}")
-	public boolean changeName(@PathVariable int userId, @RequestBody UpdateProfile updateProfile) {
+	public String changeName(@PathVariable int userId, @RequestBody UpdateProfile updateProfile) {
 		try {
 
-			return dao.updateName(userId, updateProfile.getName());
+			if(dao.updateName(userId, updateProfile.getName()))
+				return "Name updated";
 		} catch (NameTooSmallException e) {
-			e.printStackTrace();
+			return e.getMessage();
 		}
-		return false;
+		return "Name not updated";
 	}
 
 	@PutMapping("changePassword/{userId}")
-	public boolean changePassword(@PathVariable int userId, @RequestBody UpdateProfile updateProfile) {
+	public String changePassword(@PathVariable int userId, @RequestBody UpdateProfile updateProfile) {
 		try {
-			return dao.updatePassword(userId, updateProfile.getPassword());
+			if(dao.updatePassword(userId, updateProfile.getPassword()))
+				return "Password updated";
 		} catch (PasswordNotStrongException e) {
-			e.printStackTrace();
+			return e.getMessage();
 		}
-		return false;
+		return "Password not updated";
 	}
 
 	@PutMapping("changeDOB/{userId}")
-	public boolean changeDOB(@PathVariable int userId, @RequestBody UpdateProfile updateProfile) {
+	public String changeDOB(@PathVariable int userId, @RequestBody UpdateProfile updateProfile) {
 		try {
-			return dao.updateDOB(userId, updateProfile.getDob());
+			if(dao.updateDOB(userId, updateProfile.getDob()))
+				return "Date of birth updated";
 		} catch (AgeLessThan18Exception e) {
-			e.printStackTrace();
+			return e.getMessage();
 		}
-		return false;
+		return "Date of birth updated";
 	}
 }

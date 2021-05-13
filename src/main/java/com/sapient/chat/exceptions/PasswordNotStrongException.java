@@ -1,10 +1,10 @@
 package com.sapient.chat.exceptions;
 
-public class PasswordNotStrongException extends Exception{
+public class PasswordNotStrongException extends Exception {
 	private String message;
-	
+
 	public PasswordNotStrongException() {
-		message = "Password Not Strong Exception";
+		message = "Password not strong";
 	}
 
 	public PasswordNotStrongException(String message) {
@@ -12,9 +12,13 @@ public class PasswordNotStrongException extends Exception{
 		this.message = message;
 	}
 
+	public String getMessage() {
+		return message;
+	}
+
 	@Override
 	public String toString() {
 		return "PasswordNotStrongException [message=" + message + "]";
 	}
-	
+
 }

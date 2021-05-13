@@ -4,7 +4,7 @@ public class NameTooSmallException extends Exception{
 	private String message;
 	
 	public NameTooSmallException() {
-		message = "Name Too Small Exception";
+		message = "Name is too small";
 	}
 	
 	public NameTooSmallException(String message) {
@@ -12,6 +12,10 @@ public class NameTooSmallException extends Exception{
 		this.message = message;
 	}
 	
+	public String getMessage() {
+		return message;
+	}
+
 	@Override
 	public String toString() {
 		return "NameTooSmallException [message=" + message + "]";
