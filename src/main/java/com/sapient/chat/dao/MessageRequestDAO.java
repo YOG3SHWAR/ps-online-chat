@@ -37,8 +37,8 @@ public class MessageRequestDAO implements IMessageRequestDAO {
 			PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql);
 			ps.setInt(1, requestId);
 			ResultSet rs = ps.executeQuery();
-			MessageRequest messageRequest = new MessageRequest();
 			if (rs.next()) {
+				MessageRequest messageRequest = new MessageRequest();
 				messageRequest.setSenderId(rs.getInt(2));
 				messageRequest.setReceiverId(rs.getInt(3));
 				messageRequest.setMessageBody(rs.getString(4));
