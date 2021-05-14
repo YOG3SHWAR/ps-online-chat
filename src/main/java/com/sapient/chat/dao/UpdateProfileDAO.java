@@ -23,9 +23,9 @@ import com.sapient.chat.utils.GetConnection;
 public class UpdateProfileDAO implements IUpdateProfileDAO{
 
 	public boolean updateEmail(int userId, String email) throws EmailNotValidException{
+		
 		boolean isEmail = false;
-		ResourceBundle rb = ResourceBundle.getBundle("constants");
-		String emailRegex = rb.getString("EMAIL_REGEX");		
+		String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";
 		Pattern pat = Pattern.compile(emailRegex);
 		isEmail = pat.matcher(email).matches();
 		

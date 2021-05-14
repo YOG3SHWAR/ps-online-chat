@@ -15,13 +15,18 @@ import com.sapient.chat.interfaces.IUpdateProfileDAO;
 
 class MessageRequestTest {
 
-	private MessageRequest messageRequest = new MessageRequest();
+	private MessageRequest messageRequest = null;
+	
+	@BeforeEach
+	public void setUpMessageRequest() {
+		messageRequest = new MessageRequest();
+	}
 	
 	@Test
 	@DisplayName("Should Return Request Id Correctly.")
 	public void should_ReturnRequestId_When_RequestIdRequested() {
 		messageRequest.setRequestId(10);
-		int expected=10;
+		int expected = 10;
 		int actual = messageRequest.getRequestId();
 		
 		assertEquals(expected, actual);
@@ -50,8 +55,8 @@ class MessageRequestTest {
 	@Test
 	@DisplayName("Should Return Message Body Correctly.")
 	public void should_ReturnMessaegBody_When_MessageBodyRequested() {
-		messageRequest.setMessageBody("Hi");
-		String expected = "Hi";
+		messageRequest.setMessageBody("Hi From MessageRequestTest");
+		String expected = "Hi From MessageRequestTest";
 		String actual = messageRequest.getMessageBody();
 		
 		assertEquals(expected, actual);
