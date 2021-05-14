@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sapient.chat.dao.UpdateProfileDAO;
-import com.sapient.chat.entity.UpdateProfile;
+import com.sapient.chat.entity.Profile;
 import com.sapient.chat.exceptions.AgeLessThan18Exception;
 import com.sapient.chat.exceptions.EmailNotValidException;
 import com.sapient.chat.exceptions.NameTooSmallException;
@@ -20,11 +20,6 @@ import com.sapient.chat.interfaces.IUpdateProfileDAO;
 public class UpdateProfileController {
 
 	private IUpdateProfileDAO dao = new UpdateProfileDAO();
-
-	@GetMapping("/healthy")
-	public String health() {
-		return "Update Profile Controller";
-	}
 
 	@PutMapping("/changeEmail/{userId}")
 	public String changeEmail(@PathVariable int userId, @RequestBody String email) {
@@ -38,7 +33,7 @@ public class UpdateProfileController {
 	}
 
 	@PutMapping("changeName/{userId}")
-	public String changeName(@PathVariable int userId, @RequestBody UpdateProfile updateProfile) {
+	public String changeName(@PathVariable int userId, @RequestBody Profile updateProfile) {
 		try {
 
 			if(dao.updateName(userId, updateProfile.getName()))
@@ -50,7 +45,7 @@ public class UpdateProfileController {
 	}
 
 	@PutMapping("changePassword/{userId}")
-	public String changePassword(@PathVariable int userId, @RequestBody UpdateProfile updateProfile) {
+	public String changePassword(@PathVariable int userId, @RequestBody Profile updateProfile) {
 		try {
 			if(dao.updatePassword(userId, updateProfile.getPassword()))
 				return "Password updated";
@@ -61,7 +56,7 @@ public class UpdateProfileController {
 	}
 
 	@PutMapping("changeDOB/{userId}")
-	public String changeDOB(@PathVariable int userId, @RequestBody UpdateProfile updateProfile) {
+	public String changeDOB(@PathVariable int userId, @RequestBody Profile updateProfile) {
 		try {
 			if(dao.updateDOB(userId, updateProfile.getDob()))
 				return "Date of birth updated";

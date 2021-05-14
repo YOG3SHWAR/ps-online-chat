@@ -18,10 +18,8 @@ public class GetConnection {
 			Class.forName(driver);
 			return DriverManager.getConnection(url, name, password);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

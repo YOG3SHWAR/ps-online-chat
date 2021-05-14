@@ -9,6 +9,7 @@ public class EmailNotValidException extends Exception {
 	}
 
 	public EmailNotValidException(String message) {
+		super();
 		this.message = message;
 	}
 

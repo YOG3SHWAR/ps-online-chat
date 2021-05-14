@@ -23,10 +23,8 @@ public class MessageRequestDAO implements IMessageRequestDAO {
 
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return false;
 	}
 
@@ -46,7 +44,6 @@ public class MessageRequestDAO implements IMessageRequestDAO {
 				return messageRequest;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -68,7 +65,6 @@ public class MessageRequestDAO implements IMessageRequestDAO {
 				list.add(messageRequest);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;
@@ -82,7 +78,6 @@ public class MessageRequestDAO implements IMessageRequestDAO {
 			ps.setInt(2, requestId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
