@@ -15,12 +15,7 @@ import com.sapient.chat.interfaces.IUpdateProfileDAO;
 
 class MessageRequestTest {
 
-	private MessageRequest messageRequest = null;
-	
-	@BeforeEach
-	public void setUpMessageRequest() {
-		messageRequest = new MessageRequest();		
-	}
+	private MessageRequest messageRequest = new MessageRequest();
 	
 	@Test
 	@DisplayName("Should Return Request Id Correctly.")
