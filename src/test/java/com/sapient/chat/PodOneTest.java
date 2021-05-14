@@ -45,18 +45,6 @@ public class PodOneTest {
 	}
 	
 	@Test
-	@DisplayName("Sender Id Test")
-	public void isSenderIDCorrect() {
-		assertEquals(10005 , m.getSenderId());
-	}
-	
-	@Test
-	@DisplayName("Receiver Id Test")
-	public void isRecieverIDCorrect() {
-		assertEquals(10003 , m.getReceiverId());
-	}
-	
-	@Test
 	@DisplayName("Get All Message Test")
 	public void getAllMessages() {
 		assertNotEquals(0 , dao.getAllMessages().size());
