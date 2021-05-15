@@ -1,4 +1,4 @@
-package com.sapient.chat.dao;
+package com.sapient.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sapient.chat.entity.MessageRequest;
-import com.sapient.chat.interfaces.IMessageRequestDAO;
-import com.sapient.chat.utils.GetConnection;
+import com.sapient.entity.MessageRequest;
+import com.sapient.interfaces.IMessageRequestDAO;
+import com.sapient.utils.GetConnection;
 
 public class MessageRequestDAO implements IMessageRequestDAO {
 

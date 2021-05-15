@@ -1,4 +1,4 @@
-package com.sapient.chat.utils;
+package com.sapient.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

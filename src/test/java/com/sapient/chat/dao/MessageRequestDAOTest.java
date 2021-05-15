@@ -6,8 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.sapient.chat.entity.MessageRequest;
-import com.sapient.chat.interfaces.IMessageRequestDAO;
+import com.sapient.dao.MessageRequestDAO;
+import com.sapient.entity.MessageRequest;
+import com.sapient.interfaces.IMessageRequestDAO;
 
 class MessageRequestDAOTest {
 	private MessageRequest messageRequest = null;

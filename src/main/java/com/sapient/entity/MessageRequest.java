@@ -1,4 +1,4 @@
-package com.sapient.chat.entity;
+package com.sapient.entity;
 
 public class MessageRequest {
 	private int requestId;

@@ -6,12 +6,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.sapient.chat.dao.MessageRequestDAO;
-import com.sapient.chat.dao.UpdateProfileDAO;
-import com.sapient.chat.exceptions.EmailNotValidException;
-import com.sapient.chat.exceptions.NameTooSmallException;
-import com.sapient.chat.interfaces.IMessageRequestDAO;
-import com.sapient.chat.interfaces.IUpdateProfileDAO;
+import com.sapient.dao.MessageRequestDAO;
+import com.sapient.dao.UpdateProfileDAO;
+import com.sapient.entity.MessageRequest;
+import com.sapient.exceptions.EmailNotValidException;
+import com.sapient.exceptions.NameTooSmallException;
+import com.sapient.interfaces.IMessageRequestDAO;
+import com.sapient.interfaces.IUpdateProfileDAO;
 
 class MessageRequestTest {
 

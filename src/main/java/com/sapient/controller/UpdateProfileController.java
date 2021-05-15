@@ -1,4 +1,4 @@
-package com.sapient.chat.controller;
+package com.sapient.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sapient.chat.dao.UpdateProfileDAO;
-import com.sapient.chat.entity.Profile;
-import com.sapient.chat.exceptions.AgeLessThan18Exception;
-import com.sapient.chat.exceptions.EmailNotValidException;
-import com.sapient.chat.exceptions.NameTooSmallException;
-import com.sapient.chat.exceptions.PasswordNotStrongException;
-import com.sapient.chat.interfaces.IUpdateProfileDAO;
+import com.sapient.dao.UpdateProfileDAO;
+import com.sapient.entity.Profile;
+import com.sapient.exceptions.AgeLessThan18Exception;
+import com.sapient.exceptions.EmailNotValidException;
+import com.sapient.exceptions.NameTooSmallException;
+import com.sapient.exceptions.PasswordNotStrongException;
+import com.sapient.interfaces.IUpdateProfileDAO;
 
 @RestController
 @RequestMapping("/api")

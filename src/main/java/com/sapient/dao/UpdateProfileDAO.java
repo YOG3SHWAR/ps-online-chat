@@ -1,4 +1,4 @@
-package com.sapient.chat.dao;
+package com.sapient.dao;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -13,12 +13,12 @@ import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import com.sapient.chat.exceptions.AgeLessThan18Exception;
-import com.sapient.chat.exceptions.EmailNotValidException;
-import com.sapient.chat.exceptions.NameTooSmallException;
-import com.sapient.chat.exceptions.PasswordNotStrongException;
-import com.sapient.chat.interfaces.IUpdateProfileDAO;
-import com.sapient.chat.utils.GetConnection;
+import com.sapient.exceptions.AgeLessThan18Exception;
+import com.sapient.exceptions.EmailNotValidException;
+import com.sapient.exceptions.NameTooSmallException;
+import com.sapient.exceptions.PasswordNotStrongException;
+import com.sapient.interfaces.IUpdateProfileDAO;
+import com.sapient.utils.GetConnection;
 
 public class UpdateProfileDAO implements IUpdateProfileDAO{
 
