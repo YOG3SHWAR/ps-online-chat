@@ -15,14 +15,14 @@ import com.sapient.chat.interfaces.IUpdateProfileDAO;
 
 public class App {
 	public static void main(String[] args) {
-		MessageRequest m = new MessageRequest();
-		m.setSenderId(10005);
-		m.setReceiverId(10003);
-		m.setMessageBody("Hi");
-		m.setIsAccepted(1);
-
-		IMessageRequestDAO dao = new MessageRequestDAO();
-		IUpdateProfileDAO dao1 = new UpdateProfileDAO();
+//		MessageRequest m = new MessageRequest();
+//		m.setSenderId(10005);
+//		m.setReceiverId(10003);
+//		m.setMessageBody("Hi");
+//		m.setIsAccepted(1);
+//
+//		IMessageRequestDAO dao = new MessageRequestDAO();
+//		IUpdateProfileDAO dao1 = new UpdateProfileDAO();
 
 //		try {
 //			System.out.println(dao1.updateName(10001, "User1")? "Name Updated" : "Name Not Updated");
