@@ -1,4 +1,4 @@
-package com.sapient.chat.dao;
+package com.sapient.dao;
 
 import static org.junit.jupiter.api.Assertions.*;
 

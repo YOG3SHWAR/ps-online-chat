@@ -1,4 +1,4 @@
-package com.sapient.chat.entity;
+package com.sapient.entity;
 
 import static org.junit.jupiter.api.Assertions.*;
 
