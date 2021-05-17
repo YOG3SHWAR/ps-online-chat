@@ -2,8 +2,12 @@ package com.sapient.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.Transient;
+
 public class Profile {
+	private String userId;
 	private String email;
+	@Transient
 	private String password;
 	private String name;
 	private LocalDate dob;
@@ -12,11 +16,20 @@ public class Profile {
 
 	}
 
-	public Profile(String email, String password, String name, LocalDate dob) {
+	public Profile(String userId, String email, String password, String name, LocalDate dob) {
+		this.userId = userId;
 		this.email = email;
 		this.password = password;
 		this.name = name;
 		this.dob = dob;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getEmail() {
@@ -53,7 +66,8 @@ public class Profile {
 
 	@Override
 	public String toString() {
-		return "UpdateProfile [email=" + email + ", password=" + password + ", name=" + name + ", dob=" + dob + "]";
+		return "Profile [userId=" + userId + ", email=" + email + ", password=" + password + ", name=" + name + ", dob="
+				+ dob + "]";
 	}
 
 }

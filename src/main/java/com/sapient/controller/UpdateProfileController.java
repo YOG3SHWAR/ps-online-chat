@@ -1,6 +1,5 @@
 package com.sapient.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,48 +20,48 @@ public class UpdateProfileController {
 
 	private IUpdateProfileDAO dao = new UpdateProfileDAO();
 
-	@PutMapping("/changeEmail/{userId}")
-	public String changeEmail(@PathVariable int userId, @RequestBody String email) {
+	@PutMapping("/user/{userId}/email")
+	public Profile changeEmail(@PathVariable int userId, @RequestBody Profile updateProfile) {
 		try {
-			if(dao.updateEmail(userId, email))
-				return "Email updated";
+			if(dao.updateEmail(userId, updateProfile.getEmail()))
+				return dao.getUser(userId);
 		} catch (EmailNotValidException e) {
-			return e.getMessage();
+			e.printStackTrace();
 		}
-		return "Unknown Error";
+		return dao.getUser(userId);
 	}
 
-	@PutMapping("changeName/{userId}")
-	public String changeName(@PathVariable int userId, @RequestBody Profile updateProfile) {
+	@PutMapping("user/{userId}/name")
+	public Profile changeName(@PathVariable int userId, @RequestBody Profile updateProfile) {
 		try {
 
 			if(dao.updateName(userId, updateProfile.getName()))
-				return "Name updated";
+				return dao.getUser(userId);
 		} catch (NameTooSmallException e) {
-			return e.getMessage();
+			e.printStackTrace();
 		}
-		return "Unknown Error";
+		return dao.getUser(userId);
 	}
 
-	@PutMapping("changePassword/{userId}")
-	public String changePassword(@PathVariable int userId, @RequestBody Profile updateProfile) {
+	@PutMapping("user/{userId}/password")
+	public Profile changePassword(@PathVariable int userId, @RequestBody Profile updateProfile) {
 		try {
 			if(dao.updatePassword(userId, updateProfile.getPassword()))
-				return "Password updated";
+				return dao.getUser(userId);
 		} catch (PasswordNotStrongException e) {
-			return e.getMessage();
+			e.printStackTrace();
 		}
-		return "Unknown Error";
+		return dao.getUser(userId);
 	}
 
-	@PutMapping("changeDOB/{userId}")
-	public String changeDOB(@PathVariable int userId, @RequestBody Profile updateProfile) {
+	@PutMapping("user/{userId}/dob")
+	public Profile changeDOB(@PathVariable int userId, @RequestBody Profile updateProfile) {
 		try {
 			if(dao.updateDOB(userId, updateProfile.getDob()))
-				return "Date of birth updated";
+				return dao.getUser(userId);
 		} catch (AgeLessThan18Exception e) {
-			return e.getMessage();
+			e.printStackTrace();
 		}
-		return "Unknown Error";
+		return dao.getUser(userId);
 	}
 }

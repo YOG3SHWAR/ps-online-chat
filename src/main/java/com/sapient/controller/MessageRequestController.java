@@ -26,22 +26,22 @@ public class MessageRequestController {
 		return "Chat Service is UP... ";
 	}
 
-	@GetMapping("/messageRequest")
+	@GetMapping("/message-request")
 	public List<MessageRequest> getAllMessage() {
 		return dao.getAllMessages();
 	}
 
-	@GetMapping("/messageRequest/{requestId}")
+	@GetMapping("/message-request/{requestId}")
 	public MessageRequest getMessage(@PathVariable int requestId) {
 		return dao.getMessage(requestId);
 	}
 
-	@PostMapping("/messageRequest")
+	@PostMapping("/message-request")
 	public String insertMessage(@RequestBody MessageRequest messageRequest) {
 		return dao.saveMessage(messageRequest) ? "Inserted" : "Not Inserted";
 	}
 
-	@PutMapping("/updateRequest/{requestId}")
+	@PutMapping("/update-request/{requestId}")
 	public String changeRequest(@PathVariable int requestId, @RequestBody MessageRequest messageRequest) {
 		return dao.updateRequest(requestId, messageRequest.getIsAccepted()) ? "updated" : "not updated";
 	}
