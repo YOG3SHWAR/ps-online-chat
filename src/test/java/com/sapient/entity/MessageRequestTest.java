@@ -26,9 +26,9 @@ class MessageRequestTest {
 	@Test
 	@DisplayName("Should Return Request Id Correctly.")
 	public void should_ReturnRequestId_When_RequestIdRequested() {
-		messageRequest.setRequestId(10);
+		messageRequest.setRequestId("10");
 		int expected = 10;
-		int actual = messageRequest.getRequestId();
+		String actual = messageRequest.getRequestId();
 		
 		assertEquals(expected, actual);
 	}
@@ -36,9 +36,9 @@ class MessageRequestTest {
 	@Test
 	@DisplayName("Should Return Sender Id Correctly.")
 	public void should_ReturnSenderId_When_SenderIdRequested() {
-		messageRequest.setSenderId(10005);
+		messageRequest.setSenderId("10005");
 		int expected = 10005;
-		int actual = messageRequest.getSenderId();
+		String actual = messageRequest.getSenderId();
 		
 		assertEquals(expected, actual);
 	}
@@ -46,9 +46,9 @@ class MessageRequestTest {
 	@Test
 	@DisplayName("Should Return Receiver Id Correctly.")
 	public void should_ReturnReceiverId_When_ReceiverIdRequested() {
-		messageRequest.setReceiverId(10003);
+		messageRequest.setReceiverId("U3");
 		int expected = 10003;
-		int actual = messageRequest.getReceiverId();
+		String actual = messageRequest.getReceiverId();
 	
 		assertEquals(expected, actual);
 	}

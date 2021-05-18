@@ -16,8 +16,8 @@ public class MessageRequestDAO implements IMessageRequestDAO {
 		String sql = "insert into messagerequest values(default,?,?,?,?)";
 		try {
 			PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql);
-			ps.setInt(1, messageRequest.getSenderId());
-			ps.setInt(2, messageRequest.getReceiverId());
+			ps.setString(1, messageRequest.getSenderId());
+			ps.setString(2, messageRequest.getReceiverId());
 			ps.setString(3, messageRequest.getMessageBody());
 			ps.setInt(4, messageRequest.getIsAccepted());
 
@@ -37,8 +37,8 @@ public class MessageRequestDAO implements IMessageRequestDAO {
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				MessageRequest messageRequest = new MessageRequest();
-				messageRequest.setSenderId(rs.getInt(2));
-				messageRequest.setReceiverId(rs.getInt(3));
+				messageRequest.setSenderId(rs.getString(2));
+				messageRequest.setReceiverId(rs.getString(3));
 				messageRequest.setMessageBody(rs.getString(4));
 				messageRequest.setIsAccepted(rs.getInt(5));
 				return messageRequest;
@@ -58,8 +58,8 @@ public class MessageRequestDAO implements IMessageRequestDAO {
 			list = new ArrayList<MessageRequest>();
 			while (rs.next()) {
 				MessageRequest messageRequest = new MessageRequest();
-				messageRequest.setSenderId(rs.getInt(2));
-				messageRequest.setReceiverId(rs.getInt(3));
+				messageRequest.setSenderId(rs.getString(2));
+				messageRequest.setReceiverId(rs.getString(3));
 				messageRequest.setMessageBody(rs.getString(4));
 				messageRequest.setIsAccepted(rs.getInt(5));
 				list.add(messageRequest);

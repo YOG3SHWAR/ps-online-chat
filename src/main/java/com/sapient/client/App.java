@@ -15,14 +15,14 @@
 //public class App {
 //	public static void main(String[] args) {
 //		MessageRequest m = new MessageRequest();
-//		m.setSenderId(10005);
-//		m.setReceiverId(10003);
+//		m.setSenderId("U1");
+//		m.setReceiverId("U2");
 //		m.setMessageBody("Hi Yogeshwar");
 //		m.setIsAccepted(1);
 //
 //		IMessageRequestDAO dao = new MessageRequestDAO();
 //		IUpdateProfileDAO dao1 = new UpdateProfileDAO();
-//
+
 //		try {
 //			System.out.println(dao1.updateName("10001", "Yogeshwar") ? "Name Updated" : "Name Not Updated");
 //		} catch (NameTooSmallException e) {
@@ -50,12 +50,12 @@
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-//
+
 //		System.out.println(dao.saveMessage(m) ? "Inserted " : "Not Inserted");
 //		System.out.println(dao.getMessage(02));
 //		System.out.println(dao.getAllMessages());
 //		System.out.println(dao.updateRequest(1, 1) ? "Updated" : "Not updated");
-//
-//	}
-//
-//}
+
+	}
+
+}

@@ -23,8 +23,8 @@ class MessageRequestDAOTest {
 	@DisplayName("Should Return True When Message Saved to Database.")
 	public void should_ReturnTrue_When_MessageSaved() {
 		messageRequest = new MessageRequest();
-		messageRequest.setSenderId(10005);
-		messageRequest.setReceiverId(10003);
+		messageRequest.setSenderId("U5");
+		messageRequest.setReceiverId("U3");
 		messageRequest.setMessageBody("Hi From Message Request DAO Test");
 		messageRequest.setIsAccepted(1);
 		
