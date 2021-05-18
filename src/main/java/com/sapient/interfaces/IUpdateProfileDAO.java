@@ -10,17 +10,17 @@ import com.sapient.exceptions.PasswordNotStrongException;
 
 public interface IUpdateProfileDAO {
 	//Update email
-	public boolean updateEmail(int userId, String email) throws EmailNotValidException;
+	public boolean updateEmail(String userId, String email) throws EmailNotValidException;
 	
 	//Update Name
-	public boolean updateName(int userId, String name) throws NameTooSmallException;
+	public boolean updateName(String userId, String name) throws NameTooSmallException;
 	
 	//Update password
-	public boolean updatePassword(int userId, String password) throws PasswordNotStrongException;
+	public boolean updatePassword(String userId, String password) throws PasswordNotStrongException;
 	
 	//Update d.o.b.
-	public boolean updateDOB(int userId, LocalDate dob) throws AgeLessThan18Exception;
+	public boolean updateDOB(String userId, LocalDate dob) throws AgeLessThan18Exception;
 	
 	//return user
-	public Profile getUser(int userId);
+	public Profile getUser(String userId);
 }

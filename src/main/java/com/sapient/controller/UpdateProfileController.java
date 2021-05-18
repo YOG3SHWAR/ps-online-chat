@@ -21,7 +21,7 @@ public class UpdateProfileController {
 	private IUpdateProfileDAO dao = new UpdateProfileDAO();
 
 	@PutMapping("/user/{userId}/email")
-	public Profile changeEmail(@PathVariable int userId, @RequestBody Profile updateProfile) {
+	public Profile changeEmail(@PathVariable String userId, @RequestBody Profile updateProfile) {
 		try {
 			if(dao.updateEmail(userId, updateProfile.getEmail()))
 				return dao.getUser(userId);
@@ -32,7 +32,7 @@ public class UpdateProfileController {
 	}
 
 	@PutMapping("user/{userId}/name")
-	public Profile changeName(@PathVariable int userId, @RequestBody Profile updateProfile) {
+	public Profile changeName(@PathVariable String userId, @RequestBody Profile updateProfile) {
 		try {
 
 			if(dao.updateName(userId, updateProfile.getName()))
@@ -44,7 +44,7 @@ public class UpdateProfileController {
 	}
 
 	@PutMapping("user/{userId}/password")
-	public Profile changePassword(@PathVariable int userId, @RequestBody Profile updateProfile) {
+	public Profile changePassword(@PathVariable String userId, @RequestBody Profile updateProfile) {
 		try {
 			if(dao.updatePassword(userId, updateProfile.getPassword()))
 				return dao.getUser(userId);
@@ -55,7 +55,7 @@ public class UpdateProfileController {
 	}
 
 	@PutMapping("user/{userId}/dob")
-	public Profile changeDOB(@PathVariable int userId, @RequestBody Profile updateProfile) {
+	public Profile changeDOB(@PathVariable String userId, @RequestBody Profile updateProfile) {
 		try {
 			if(dao.updateDOB(userId, updateProfile.getDob()))
 				return dao.getUser(userId);

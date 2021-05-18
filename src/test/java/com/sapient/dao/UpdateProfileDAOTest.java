@@ -24,7 +24,7 @@ class UpdateProfileDAOTest {
 	@DisplayName("Should Return False When Name Not Updated!")
 	void should_ReturnFalse_When_NameNotUpdated() throws NameTooSmallException {
 		boolean expected = false;
-		boolean actual = updateProfileDao.updateName(124, "ABC");
+		boolean actual = updateProfileDao.updateName("124", "ABC");
 		
 		assertEquals(expected , actual);
 	}
@@ -33,7 +33,7 @@ class UpdateProfileDAOTest {
 	@DisplayName("Should Return False When Email Not Updated!")
 	void should_ReturnFalse_When_EmailNotUpdated() throws EmailNotValidException {
 		boolean expected = false;
-		boolean actual = updateProfileDao.updateEmail(124, "test@testing.com");
+		boolean actual = updateProfileDao.updateEmail("124", "test@testing.com");
 		
 		assertEquals(expected , actual);
 	}

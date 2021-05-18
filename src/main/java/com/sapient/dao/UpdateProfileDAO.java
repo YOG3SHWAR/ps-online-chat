@@ -10,7 +10,6 @@ import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAccessor;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -24,11 +23,10 @@ import com.sapient.utils.GetConnection;
 
 public class UpdateProfileDAO implements IUpdateProfileDAO {
 
-	public boolean updateEmail(int userId, String email) throws EmailNotValidException {
+	public boolean updateEmail(String userId, String email) throws EmailNotValidException {
 
 		boolean isEmail = false;
-		String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
-				+ "A-Z]{2,7}$";
+		String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";
 		Pattern pat = Pattern.compile(emailRegex);
 		isEmail = pat.matcher(email).matches();
 
@@ -38,7 +36,7 @@ public class UpdateProfileDAO implements IUpdateProfileDAO {
 		String sql = "update users set email = ? where user_id = ?";
 		try(PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql)) {
 			ps.setString(1, email);
-			ps.setInt(2, userId);
+			ps.setString(2, userId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -47,14 +45,14 @@ public class UpdateProfileDAO implements IUpdateProfileDAO {
 		return false;
 	}
 
-	public boolean updateName(int userId, String name) throws NameTooSmallException {
+	public boolean updateName(String userId, String name) throws NameTooSmallException {
 		if (name.length() < 1)
 			throw new NameTooSmallException();
 
 		String sql = "update users set name = ? where user_id = ?";
 		try(PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql)) {
 			ps.setString(1, name);
-			ps.setInt(2, userId);
+			ps.setString(2, userId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -62,7 +60,7 @@ public class UpdateProfileDAO implements IUpdateProfileDAO {
 		return false;
 	}
 
-	public boolean updatePassword(int userId, String password) throws PasswordNotStrongException {
+	public boolean updatePassword(String userId, String password) throws PasswordNotStrongException {
 
 		// Checking password strength
 		String strength;
@@ -96,7 +94,7 @@ public class UpdateProfileDAO implements IUpdateProfileDAO {
 		String sql = "update users set password = ? where user_id = ?";
 		try(PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql)) {
 			ps.setString(1, password);
-			ps.setInt(2, userId);
+			ps.setString(2, userId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -104,7 +102,7 @@ public class UpdateProfileDAO implements IUpdateProfileDAO {
 		return false;
 	}
 
-	public boolean updateDOB(int userId, LocalDate dob) throws AgeLessThan18Exception {
+	public boolean updateDOB(String userId, LocalDate dob) throws AgeLessThan18Exception {
 		LocalDate start = LocalDate.from((TemporalAccessor) dob);
 		LocalDate end = LocalDate.now();
 		int age = (int) ChronoUnit.YEARS.between(start, (Temporal) end);
@@ -118,7 +116,7 @@ public class UpdateProfileDAO implements IUpdateProfileDAO {
 		try(PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql)) {
 			
 			ps.setDate(1, date);
-			ps.setInt(2, userId);
+			ps.setString(2, userId);
 			return ps.executeUpdate() > 0;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -126,11 +124,11 @@ public class UpdateProfileDAO implements IUpdateProfileDAO {
 		return false;
 	}
 
-	public Profile getUser(int userId) {
+	public Profile getUser(String userId) {
 		String sql = "select user_id, email, password, name, dob from users where user_id = ?";
 
 		try(PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql)) {
-			ps.setInt(1, userId);
+			ps.setString(1, userId);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				Profile profile = new Profile();
