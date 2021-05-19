@@ -2,7 +2,7 @@ package com.sapient.interfaces;
 
 import java.time.LocalDate;
 
-import com.sapient.entity.Profile;
+import com.sapient.entity.User;
 import com.sapient.exceptions.AgeLessThan18Exception;
 import com.sapient.exceptions.EmailNotValidException;
 import com.sapient.exceptions.NameTooSmallException;
@@ -22,5 +22,5 @@ public interface IUpdateProfileDAO {
 	public boolean updateDOB(String userId, LocalDate dob) throws AgeLessThan18Exception;
 	
 	//return user
-	public Profile getUser(String userId);
+	public User getUser(String userId);
 }

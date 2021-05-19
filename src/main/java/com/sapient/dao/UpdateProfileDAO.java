@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import com.sapient.entity.Profile;
+import com.sapient.entity.User;
 import com.sapient.exceptions.AgeLessThan18Exception;
 import com.sapient.exceptions.EmailNotValidException;
 import com.sapient.exceptions.NameTooSmallException;
@@ -124,14 +124,14 @@ public class UpdateProfileDAO implements IUpdateProfileDAO {
 		return false;
 	}
 
-	public Profile getUser(String userId) {
+	public User getUser(String userId) {
 		String sql = "select user_id, email, password, name, dob from users where user_id = ?";
 
 		try(PreparedStatement ps = GetConnection.getMySQLConn().prepareStatement(sql)) {
 			ps.setString(1, userId);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				Profile profile = new Profile();
+				User profile = new User();
 				profile.setEmail(rs.getString(2));
 				profile.setPassword(rs.getString(3));
 				profile.setName(rs.getString(4));

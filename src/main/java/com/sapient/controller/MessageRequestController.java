@@ -41,7 +41,7 @@ public class MessageRequestController {
 		return dao.saveMessage(messageRequest) ? "Inserted" : "Not Inserted";
 	}
 
-	@PutMapping("/update-request/{requestId}")
+	@PutMapping("/message-request/{requestId}")
 	public String changeRequest(@PathVariable int requestId, @RequestBody MessageRequest messageRequest) {
 		return dao.updateRequest(requestId, messageRequest.getIsAccepted()) ? "updated" : "not updated";
 	}

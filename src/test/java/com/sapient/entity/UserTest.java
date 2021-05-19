@@ -6,14 +6,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.sapient.entity.Profile;
+import com.sapient.entity.User;
 
-class ProfileTest {
-	private Profile profile = null;
+class UserTest {
+	private User profile = null;
 	
 	@BeforeEach
 	public void setUpProfile() {
-		profile = new Profile();
+		profile = new User();
 	}
 
 	@Test

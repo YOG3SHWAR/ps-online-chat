@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sapient.dao.UpdateProfileDAO;
-import com.sapient.entity.Profile;
+import com.sapient.entity.User;
 import com.sapient.exceptions.AgeLessThan18Exception;
 import com.sapient.exceptions.EmailNotValidException;
 import com.sapient.exceptions.NameTooSmallException;
@@ -21,7 +21,7 @@ public class UpdateProfileController {
 	private IUpdateProfileDAO dao = new UpdateProfileDAO();
 
 	@PutMapping("/user/{userId}/email")
-	public Profile changeEmail(@PathVariable String userId, @RequestBody Profile updateProfile) {
+	public User changeEmail(@PathVariable String userId, @RequestBody User updateProfile) {
 		try {
 			if(dao.updateEmail(userId, updateProfile.getEmail()))
 				return dao.getUser(userId);
@@ -31,8 +31,8 @@ public class UpdateProfileController {
 		return dao.getUser(userId);
 	}
 
-	@PutMapping("user/{userId}/name")
-	public Profile changeName(@PathVariable String userId, @RequestBody Profile updateProfile) {
+	@PutMapping("/user/{userId}/name")
+	public User changeName(@PathVariable String userId, @RequestBody User updateProfile) {
 		try {
 
 			if(dao.updateName(userId, updateProfile.getName()))
@@ -43,8 +43,8 @@ public class UpdateProfileController {
 		return dao.getUser(userId);
 	}
 
-	@PutMapping("user/{userId}/password")
-	public Profile changePassword(@PathVariable String userId, @RequestBody Profile updateProfile) {
+	@PutMapping("/user/{userId}/password")
+	public User changePassword(@PathVariable String userId, @RequestBody User updateProfile) {
 		try {
 			if(dao.updatePassword(userId, updateProfile.getPassword()))
 				return dao.getUser(userId);
@@ -54,8 +54,8 @@ public class UpdateProfileController {
 		return dao.getUser(userId);
 	}
 
-	@PutMapping("user/{userId}/dob")
-	public Profile changeDOB(@PathVariable String userId, @RequestBody Profile updateProfile) {
+	@PutMapping("/user/{userId}/dob")
+	public User changeDOB(@PathVariable String userId, @RequestBody User updateProfile) {
 		try {
 			if(dao.updateDOB(userId, updateProfile.getDob()))
 				return dao.getUser(userId);

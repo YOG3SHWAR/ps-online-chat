@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Transient;
 
-public class Profile {
+public class User {
 	private String userId;
 	private String email;
 	@Transient
@@ -12,11 +12,11 @@ public class Profile {
 	private String name;
 	private LocalDate dob;
 
-	public Profile() {
+	public User() {
 
 	}
 
-	public Profile(String userId, String email, String password, String name, LocalDate dob) {
+	public User(String userId, String email, String password, String name, LocalDate dob) {
 		this.userId = userId;
 		this.email = email;
 		this.password = password;
